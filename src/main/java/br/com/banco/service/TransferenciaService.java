@@ -3,7 +3,10 @@ package br.com.banco.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import br.com.banco.model.Transferencia;
 import br.com.banco.repository.TransferenciaRepository;
@@ -17,4 +20,9 @@ public class TransferenciaService {
     public List<Transferencia> findAll(){
         return transferenciaRepository.findAll();
     }
+
+    public Page<Transferencia> findAllPageable(Pageable pageable) {
+        return transferenciaRepository.findAll(pageable);
+    }
+
 }
